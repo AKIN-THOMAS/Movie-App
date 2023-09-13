@@ -2,6 +2,8 @@ import { CircularProgress } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ErrorMessage from "../ErrorMessage";
+import play from "../../assets/Play.svg";
+import list from "../../assets/List.svg";
 
 const MovieDetails = () => {
   const { id } = useParams();
@@ -17,8 +19,9 @@ const MovieDetails = () => {
     )
       .then((response) => response.json())
       .then((data) => {
+        console.log(data);
         if (data.success === false) {
-          setError("Movie not found or API error");
+          setError(data.status_message);
           setLoading(false);
         } else {
           setMovie(data);
@@ -52,30 +55,49 @@ const MovieDetails = () => {
         <ErrorMessage message={error} />
       ) : (
         <>
-          <div className="background-poster">
-            <img src={`${imageLink}${movie.backdrop_path}`} alt={movie.title} />
-          </div>
+          <div className="details-body">
+            <div className="details-body1">
+              <div className="background-poster">
+                <img
+                  src={`${imageLink}${movie.backdrop_path}`}
+                  alt={movie.title}
+                />
+              </div>
 
-          <div className="top">
-            <div className="release_date">
-              <p data-testid="movie-release-date">{movie.release_date}</p>
-            </div>
-            <div className="dot">
-              <span>.</span>
-            </div>
-            <div className="movie-title">
-              <h1 data-testid="movie-title">{movie.title}</h1>
-            </div>
-            <div className="dot">
-              <span>.</span>
-            </div>
-            <div className="runtime">
-              <p data-testid="movie-runtime"> {movie.runtime} minutes</p>
-            </div>
-          </div>
+              <div className="top">
+                <div className="release_date">
+                  <p data-testid="movie-release-date">{movie.release_date}</p>
+                </div>
+                <div className="dot">
+                  <span>.</span>
+                </div>
+                <div className="movie-title">
+                  <h1 data-testid="movie-title">{movie.title}</h1>
+                </div>
+                <div className="dot">
+                  <span>.</span>
+                </div>
+                <div className="runtime">
+                  <p data-testid="movie-runtime"> {movie.runtime} minutes</p>
+                </div>
+              </div>
 
-          <div className="overview">
-            <p data-testid="movie-overview">{movie.overview}</p>
+              <div className="overview">
+                <p data-testid="movie-overview">{movie.overview}</p>
+              </div>
+            </div>
+            <div className="details-body2">
+              <div className="part2">
+                <button className="trailer">
+                  <img src={play} alt="play" />
+                  Watch Tralier
+                </button>
+                <button className="more-option">
+                  <img src={list} alt="list" />
+                  More watch options
+                </button>
+              </div>
+            </div>
           </div>
         </>
       )}
