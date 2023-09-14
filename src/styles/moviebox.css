@@ -5,10 +5,9 @@
 }
 ::-webkit-scrollbar {
   width: 0;
-  background: transparent; /* Optional: Makes the scrollbar area transparent */
+  background: transparent;
 }
 
-/* Optional: Handle style for WebKit browsers */
 ::-webkit-scrollbar-thumb {
   background: transparent;
 }

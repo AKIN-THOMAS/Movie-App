@@ -3,14 +3,12 @@ import Landing from "../components/moviebox/Landing";
 import Featured from "../components/moviebox/Featured";
 import Footer from "../components/moviebox/Footer";
 import { CircularProgress } from "@chakra-ui/react";
+import ErrorMessage from "../components/ErrorMessage";
 
 const Homepage = () => {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(true);
   const [errorMessage, setErrorMessage] = useState("");
-
-  // const [searchQuery, setSearchQuery] = useState("");
-  // const [searchResults, setSearchResults] = useState([]);
 
   const API_URL = "https://api.themoviedb.org/3/movie/top_rated?";
   const API_KEY = "031b1480eda9caa523cf69bf05e28933";
@@ -43,8 +41,7 @@ const Homepage = () => {
         </div>
         {errorMessage && (
           <>
-            {" "}
-            <p>No result found</p>
+            <ErrorMessage message={errorMessage} />
           </>
         )}
       </section>
