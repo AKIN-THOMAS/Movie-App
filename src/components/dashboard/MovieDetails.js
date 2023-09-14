@@ -55,47 +55,47 @@ const MovieDetails = () => {
         <ErrorMessage message={error} />
       ) : (
         <>
-          <div className="details-body">
-            <div className="details-body1">
-              <div className="background-poster">
-                <img
-                  src={`${imageLink}${movie.backdrop_path}`}
-                  alt={movie.title}
-                />
-              </div>
+          <div className="details-body1">
+            <div className="background-poster">
+              <img
+                src={`${imageLink}${movie.backdrop_path}`}
+                alt={movie.title}
+              />
+            </div>
 
-              <div className="top">
-                <div className="release_date">
-                  <p data-testid="movie-release-date">{movie.release_date}</p>
-                </div>
-                <div className="dot">
-                  <span>.</span>
-                </div>
-                <div className="movie-title">
-                  <h1 data-testid="movie-title">{movie.title}</h1>
-                </div>
-                <div className="dot">
-                  <span>.</span>
-                </div>
-                <div className="runtime">
-                  <p data-testid="movie-runtime"> {movie.runtime} minutes</p>
-                </div>
+            <div className="top">
+              <div className="release_date">
+                <p data-testid="movie-release-date">{movie.release_date}</p>
               </div>
+              <div className="dot">
+                <span>.</span>
+              </div>
+              <div className="movie-title">
+                <h1 data-testid="movie-title">{movie.title}</h1>
+              </div>
+              <div className="dot">
+                <span>.</span>
+              </div>
+              <div className="runtime">
+                <p data-testid="movie-runtime"> {movie.runtime} minutes</p>
+              </div>
+            </div>
 
+            <div className="overBody">
               <div className="overview">
                 <p data-testid="movie-overview">{movie.overview}</p>
               </div>
-            </div>
-            <div className="details-body2">
-              <div className="part2">
-                <button className="trailer">
-                  <img src={play} alt="play" />
-                  Watch Tralier
-                </button>
-                <button className="more-option">
-                  <img src={list} alt="list" />
-                  More watch options
-                </button>
+              <div className="details-body2">
+                <div className="part2">
+                  <button className="trailer">
+                    <img src={play} alt="play" />
+                    Watch Tralier
+                  </button>
+                  <button className="more-option">
+                    <img src={list} alt="list" />
+                    More watch options
+                  </button>
+                </div>
               </div>
             </div>
           </div>

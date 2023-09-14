@@ -6,10 +6,9 @@
 }
 ::-webkit-scrollbar {
   width: 0;
-  background: transparent; /* Optional: Makes the scrollbar area transparent */
+  background: transparent;
 }
 
-/* Optional: Handle style for WebKit browsers */
 ::-webkit-scrollbar-thumb {
   background: transparent;
 }
@@ -19,7 +18,7 @@
   position: fixed;
   height: 100vh;
   box-sizing: border-box;
-  width: 246px;
+  /* width: 246px; */
   border-radius: 0px 45px 45px 0px;
   border: 1px solid rgba(0, 0, 0, 0.3);
   background: #fff;
@@ -149,7 +148,7 @@
 .toggle-sidebar-button {
   position: fixed;
   top: 20px;
-  left: 30px;
+  right: 30px;
   z-index: 2;
   font-size: 30px;
   background-color: transparent;
@@ -167,11 +166,13 @@
 .top {
   display: flex;
   align-items: center;
-  margin: 15px;
+  justify-content: space-around;
+  margin: 25px;
   gap: 40px;
 }
 
 .background-poster img {
+  margin-top: 40px;
   width: 900px;
   height: 409px;
   border-radius: 20px;
@@ -221,20 +222,19 @@
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  /* width: 900px; */
 }
 
-.details-body2 {
+/* .details-body2 {
   display: flex;
   justify-content: center;
-  align-items: center;
-}
+  align-items: flex-end;
+} */
 .trailer {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 9px;
-  width: 360px;
+  width: 300px;
   height: 55px;
   border-radius: 10px;
   background: #be123c;
@@ -250,7 +250,7 @@
   justify-content: center;
   align-items: center;
   gap: 9px;
-  width: 360px;
+  width: 300px;
   height: 55px;
   border-radius: 10px;
   border: 1px solid #be123c;
@@ -269,7 +269,13 @@
   align-items: center;
   gap: 5px;
 }
-
+.overBody {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 40px;
+  margin: 24px;
+}
 /* Error */
 
 .error-container {
@@ -326,15 +332,18 @@
 @media (max-width: 750px) {
   .movie-details {
     margin-left: 50px;
-    margin-right: 10px;
+    /* margin-right: 10px; */
+  }
+  .details-body1 {
+    margin-top: 100px;
   }
   .trailer {
-    width: 150px;
+    width: 200px;
     font-size: 16px;
     gap: 4px;
   }
   .more-option {
-    width: 170px;
+    width: 200px;
     font-size: 14px;
     gap: 2px;
   }
@@ -353,7 +362,29 @@
   .app.sidebar-visible .sidebar {
     transform: translateX(0);
   }
+  .overBody {
+    flex-direction: column;
+    align-items: center;
+  }
+  .overview {
+    text-align: center;
+  }
+  .part2 {
+    flex-direction: row;
+    width: 100%;
+  }
   /* .app.sidebar-visible .movie-details {
     margin-left: -200px;
   } */
+}
+@media (max-width: 510px) {
+  .part2 {
+    flex-direction: column;
+  }
+  .trailer {
+    width: 220px;
+  }
+  .more-option {
+    width: 220px;
+  }
 }
